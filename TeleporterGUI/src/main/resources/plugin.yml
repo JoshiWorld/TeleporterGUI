@@ -1,0 +1,10 @@
+name: TeleporterGUI
+version: 1.0
+author: JoshiWorld
+main: de.joshiworld.main.TGUI
+
+commands:
+    tgui:
+        description: TeleporterGUI
+        usage: </tgui>
+        aliases: [teleportergui]
