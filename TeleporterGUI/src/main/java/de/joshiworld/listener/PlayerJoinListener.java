@@ -54,8 +54,10 @@ public class PlayerJoinListener implements Listener {
                 e.getPlayer().sendMessage("§cconfig.json konnte nicht erstellt werden");
             }
             
+            String jj = json.toJSONString().replace(",", ",\n     ").replace("{", "{\n     ").replace("}", "\n}");
+            
             try(FileWriter fileW = new FileWriter(path)) {
-		fileW.write(json.toJSONString());
+		fileW.write(jj);
                 fileW.flush();
             } catch (IOException ex) {
                 ex.printStackTrace();

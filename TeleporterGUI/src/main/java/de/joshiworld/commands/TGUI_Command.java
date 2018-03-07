@@ -87,8 +87,10 @@ public class TGUI_Command implements CommandExecutor {
                             json.put("inv_item_" + String.valueOf(i) + "_slot", i);
                         }
                         
+                        String jj = json.toJSONString().replace(",", ",\n     ").replace("{", "{\n     ").replace("}", "\n}");
+                        
                         try(FileWriter fileW = new FileWriter(file.getPath())) {
-                            fileW.write(json.toJSONString());
+                            fileW.write(jj);
                             fileW.flush();
                         } catch (IOException ex) {
                             ex.printStackTrace();
