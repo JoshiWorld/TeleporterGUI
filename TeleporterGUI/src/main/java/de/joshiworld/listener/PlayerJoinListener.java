@@ -15,6 +15,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import ru.tehkode.permissions.bukkit.PermissionsEx;
 
 /**
  *
@@ -30,6 +31,12 @@ public class PlayerJoinListener implements Listener {
         }
         File file = new File("plugins/TGUI/config.json");
         String path = file.getPath();
+        
+        if(PermissionsEx.getUser(e.getPlayer()).getGroups()[0].has("tgui.join")) {
+            e.setJoinMessage("§4" + e.getPlayer().getName() + " §3hat den Server §abetreten");
+        } else {
+            e.setJoinMessage("§8" + e.getPlayer().getName() + " §3hat den Server §abetreten");
+        }
         
         if(!file.exists()) {
             JSONObject json = (JSONObject) new JSONObject();
